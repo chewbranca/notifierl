@@ -47,7 +47,7 @@ code_change(_OldVsn, St, _Extra) ->
 
 
 handle_call({send_message, Title, Message}, _From, St) ->
-    Cmd = "terminal-notifier -message '" ++ Title ++ "' -title '" ++ Message ++ "'",
+    Cmd = "terminal-notifier -message '" ++ Message ++ "' -title '" ++ Title ++ "'",
     error_logger:info_msg("Running OS cmd: (~p)~n", [Cmd]),
     _Resp = os:cmd(Cmd),
     {reply, ok, St};
